@@ -9,4 +9,4 @@ function tocaSom(som,loop){
 }
 
 //Tocando a trilha do jogo
-// tocaSom(somTrilha,true);
+tocaSom(somTrilha,true);

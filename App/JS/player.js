@@ -22,6 +22,7 @@ function colideCarro() {
     for(let i = 0; i < imagemCarros.length; i++ ) {
         if(verificaColisao(xCarros[i],yCarros[i])) {
             voltaPosicaoInicial();
+            tocaSom(somColidiu,false);
             if(meusPontos > 0){
                 meusPontos -= 1;
             }
@@ -44,6 +45,7 @@ function marcaPonto() {
     if(yPlayer < 15) {
         meusPontos++;
         voltaPosicaoInicial();
+        tocaSom(somPonto,false);
     }
 }
 
