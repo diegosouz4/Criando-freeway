@@ -4,6 +4,7 @@ let xPlayer = posicaoInicial[0];
 let yPlayer = posicaoInicial[1];
 let movimento = 10;
 const diametroPlayer = 30;
+let meusPontos = 0;
 
 //Funções do Jogador
 function mostraJogador() {
@@ -21,6 +22,9 @@ function colideCarro() {
     for(let i = 0; i < imagemCarros.length; i++ ) {
         if(verificaColisao(xCarros[i],yCarros[i])) {
             voltaPosicaoInicial();
+            if(meusPontos > 0){
+                meusPontos -= 1;
+            }
         }
     }
 }
@@ -29,6 +33,18 @@ function colideCarro() {
 function voltaPosicaoInicial() {
     xPlayer = posicaoInicial[0];
     yPlayer = posicaoInicial[1];
+}
+
+//Pontos
+function mostraPontos(){
+    criaTexto('#d90429','center','middle',meusPontos,canvas.width / 5,20);
+}
+
+function marcaPonto() {
+    if(yPlayer < 15) {
+        meusPontos++;
+        voltaPosicaoInicial();
+    }
 }
 
 document.onkeydown = movimentaPlayer;
@@ -44,7 +60,12 @@ function movimentaPlayer(event){
         xPlayer += movimento;
     }
     if(event.keyCode == down){
-        yPlayer += movimento;
+        if(podeDescer()) {
+            yPlayer += movimento;
+        }
     }
-    // console.log(yPlayer);
+}
+
+function podeDescer() {
+    return yPlayer <  posicaoInicial[1];
 }

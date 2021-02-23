@@ -12,6 +12,14 @@ function criaStroke(x,y,w,h){
     brush.strokeRect(x,y,w,h);
 }
 
+function criaTexto(cor,align,baseLine,texto,x,y) {
+    brush.fillStyle = cor;
+    brush.font = 'bold 25px sans-serif';
+    brush.textAlign = align;
+    brush.textBaseline = baseLine;
+    brush.fillText(texto,x,y);
+}
+
 function limpaCanvas(){
     brush.clearRect(0,0,600,400);
 }
@@ -27,6 +35,8 @@ function atualizaCanvas() {
     moveCarro();
     colideCarro();
     voltaPosicaoCarro();
+    mostraPontos();
+    marcaPonto();
 }
 
 setInterval(atualizaCanvas, 20);
