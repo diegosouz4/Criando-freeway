@@ -1,7 +1,7 @@
 //Variáveis dos carros
-let yCarros = [45,100,155];
-let xCarros = [600,600,600];
-let velocidadeCarros = [2,2.5,3]
+let yCarros = [45,100,155,215,270,325];
+let xCarros = [600,600,600,600,600,600];
+let velocidadeCarros = [2,4.3,3.2,3,4,2.4]
 
 const alturaCarro = 30;
 const larguraCarro = 50;

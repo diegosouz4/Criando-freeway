@@ -1,13 +1,13 @@
 //Variáveis Jogador
-let xPlayer = 270;
-let yPlayer = 370;
+const posicaoInicial = [270,370]
+let xPlayer = posicaoInicial[0];
+let yPlayer = posicaoInicial[1];
 let movimento = 10;
-const larguraPlayer = 30;
-const alturaPlayer = larguraPlayer;
+const diametroPlayer = 30;
 
 //Funções do Jogador
 function mostraJogador() {
-    desenhaImagem(imagemPlayer,xPlayer,yPlayer,larguraPlayer,alturaPlayer);
+    desenhaImagem(imagemPlayer,xPlayer,yPlayer,diametroPlayer,diametroPlayer);
 }
 
 //Movimentação do Jogador
@@ -15,6 +15,21 @@ const right = 37;
 const up = 38;
 const left = 39;
 const down = 40;
+
+//Verifica a Colisão
+function colideCarro() {
+    for(let i = 0; i < imagemCarros.length; i++ ) {
+        if(verificaColisao(xCarros[i],yCarros[i])) {
+            voltaPosicaoInicial();
+        }
+    }
+}
+
+//Reinicia a posição do Jogador
+function voltaPosicaoInicial() {
+    xPlayer = posicaoInicial[0];
+    yPlayer = posicaoInicial[1];
+}
 
 document.onkeydown = movimentaPlayer;
 
@@ -31,5 +46,5 @@ function movimentaPlayer(event){
     if(event.keyCode == down){
         yPlayer += movimento;
     }
-    console.log(yPlayer);
+    // console.log(yPlayer);
 }

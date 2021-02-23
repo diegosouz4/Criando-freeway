@@ -7,6 +7,11 @@ function criaRetangulo(cor,xInit,yInit,xFinal,yFinal){
     brush.fillRect(xInit,yInit,xFinal,yFinal);
 }
 
+function criaStroke(x,y,w,h){
+    brush.strokeStyle = 'red';
+    brush.strokeRect(x,y,w,h);
+}
+
 function limpaCanvas(){
     brush.clearRect(0,0,600,400);
 }
@@ -20,6 +25,7 @@ function atualizaCanvas() {
     mostraJogador();
     mostraCarros();
     moveCarro();
+    colideCarro();
     voltaPosicaoCarro();
 }
 
